@@ -17,7 +17,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useFocusEffect } from "@react-navigation/native";
 
-const BASE_URL = "http://10.156.112.75:3000/api/announcements";
+const BASE_URL = "https://YOUR-BACKEND-APP.up.railway.app/api/announcements";
+
 
 export default function AnnouncementTab() {
   const [announcements, setAnnouncements] = useState([]);

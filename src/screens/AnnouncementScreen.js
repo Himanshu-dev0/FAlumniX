@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const BASE_URL = "http://10.156.112.75:3000/api/announcements";
+const BASE_URL = "mongodb-production-44a3.up.railway.app";
 
 export default function AnnouncementScreen() {
   const [title, setTitle]             = useState("");

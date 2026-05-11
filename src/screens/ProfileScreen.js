@@ -35,7 +35,7 @@ export default function ProfileScreen() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://10.156.112.75:3000/api/profile", {
+      const response = await fetch("mongodb-production-44a3.up.railway.app", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
