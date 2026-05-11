@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Use environment variable - never hardcode credentials
 const mongoURL = process.env.MONGO_URL;
 
 if (!mongoURL) {
-  console.error("❌ MONGO_URL not found in environment variables");
+  console.error("❌ MONGO_URL not found");
   process.exit(1);
 }
 
@@ -22,7 +21,7 @@ db.on('error', (err) => {
 });
 
 db.on('disconnected', () => {
-  console.log("⚠️ MongoDB server disconnected");
+  console.log("⚠️ MongoDB disconnected");
 });
 
 module.exports = db;
