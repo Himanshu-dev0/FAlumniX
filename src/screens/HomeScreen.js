@@ -12,7 +12,7 @@ import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import useAuth from "../navigation/AuthContext";
 
-const BASE_URL = "mongodb-production-44a3.up.railway.app";
+const BASE_URL = "http://10.156.112.75:3000";
 
 export default function HomeScreen() {
   const navigation = useNavigation();

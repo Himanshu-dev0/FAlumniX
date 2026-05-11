@@ -40,7 +40,7 @@ export default function AlumniScreen({ navigation }) {
       setLoading(true);
 
       const response = await fetch(
-        "mongodb-production-44a3.up.railway.app"
+        "http://10.156.112.75:3000/api/profile"
       );
 
       const result = await response.json();

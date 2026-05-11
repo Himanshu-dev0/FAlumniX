@@ -1,23 +1,26 @@
 const express = require('express');
 require('dotenv').config();
-const app = express();
 
-// ✅ Railway uses dynamic PORT - never hardcode 3000
-const port = process.env.PORT || 3000;
+const app = express();
+const port = process.env.PORT || 3000;  // ← KEY LINE
 
 // DB connection
 require('./db');
 
-// ✅ Middleware
+// Middleware
 app.use(express.json());
 
-// ✅ Models
+// Models
 const Profile = require('./models/profile');
 const Announcement = require('./models/announcement');
 
-// ====================== PROFILE ROUTES ======================
+// ── Health check route ──────────────────────────
+// Railway pings this to confirm app is alive
+app.get('/', (req, res) => {
+  res.json({ status: 'ok', message: 'FAlumniX API is running ✅' });
+});
 
-// GET all profiles
+// ── Profile Routes ──────────────────────────────
 app.get("/api/profile", async (req, res) => {
   try {
     const profiles = await Profile.find();
@@ -27,7 +30,6 @@ app.get("/api/profile", async (req, res) => {
   }
 });
 
-// CREATE profile
 app.post('/api/profile', async (req, res) => {
   try {
     const profile = new Profile(req.body);
@@ -41,9 +43,7 @@ app.post('/api/profile', async (req, res) => {
   }
 });
 
-// ====================== ANNOUNCEMENT ROUTES ======================
-
-// GET all announcements
+// ── Announcement Routes ─────────────────────────
 app.get('/api/announcements', async (req, res) => {
   try {
     const list = await Announcement.find().sort({ createdAt: -1 });
@@ -53,24 +53,17 @@ app.get('/api/announcements', async (req, res) => {
   }
 });
 
-// CREATE announcement
 app.post('/api/announcements', async (req, res) => {
   try {
-    console.log("BODY:", req.body);
     const ann = new Announcement(req.body);
     await ann.save();
-    res.json({
-      message: "Announcement created",
-      data: ann
-    });
+    res.json({ message: "Announcement created", data: ann });
   } catch (error) {
-    console.log("ERROR:", error.message);
     res.status(500).json({ error: error.message });
   }
 });
 
-// ====================== SERVER ======================
-
+// ── Start Server ────────────────────────────────
 app.listen(port, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${port}`);
 });
