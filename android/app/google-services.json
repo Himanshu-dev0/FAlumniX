@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "225805020139",
+    "project_id": "alumnix-7bc7b",
+    "storage_bucket": "alumnix-7bc7b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225805020139:android:a6d4f46e743e55947f47ae",
+        "android_client_info": {
+          "package_name": "com.alumnix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225805020139-oedndhqi143hdjq3btmeercpfil9ndvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzbQlnWRb-xgmAUA8n8Z1FpDvoqoVOHJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225805020139-oedndhqi143hdjq3btmeercpfil9ndvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
